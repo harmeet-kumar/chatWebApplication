@@ -1,0 +1,161 @@
+{{!-- The template for showing all quizzes --}}
+<style>
+    #divNoticesTemplate li {
+        list-style-type: none;
+    }
+
+</style>
+
+<div id="divEmployeeTemplate">
+<h1>Admin Employees Page</h1>
+
+
+
+    <div class=form-horizontal>
+			<h2>Search By</h2>
+  			<div class="form-group">	
+				<div class="col-xs-12">
+						<label for="txtFirstName" class="col-sm-1 control-label">First Name</label>
+						<div class="col-sm-2">
+						<input type="text" class="form-control" id="txtFirstName" placeholder="First Name">
+						</div>
+						<label for="txtLastName" class="col-sm-1 control-label">Last Name</label>
+						<div class="col-sm-2">
+						<input type="text" class="form-control" id="txtLastName" placeholder="Last Name">
+						</div>
+						<label for="txtEmail" class="col-sm-1 control-label">Email</label>
+						<div class="col-sm-3">
+						<input type="email" class="form-control" id="txtEmail" placeholder="email@abc.com">
+						</div>
+				</div>
+				<div class="col-xs-12">
+						<label for="txtStartDate" class="col-sm-1 control-label">Start Date</label>
+						<div class="col-sm-2">
+						<input type="date" class="form-control" id="txtStartDate"  placeholder="DD/MM/YYYY">
+						</div>
+						<label for="txtEndDate" class="col-sm-1 control-label">End Date</label>
+						<div class="col-sm-2">
+						<input type="date" class="form-control" id="txtEndDate"  placeholder="DD/MM/YYYY">
+						</div>
+						<label for="selectDep" class="col-sm-1 control-label">Department</label>
+						<div class="col-sm-3">
+							<select class="form-control" id = "selectDep">
+								<option value="None">None</option>
+								<option value="Administration">Administration</option>
+								<option value="Finance">Finance</option>
+								<option value="HR">HR</option>
+								<option value="Engineering">Engineering</option>
+								<option value="IT">IT</option>
+								<option value="Marketing">Marketing</option>
+							</select>
+						</div>
+				</div>
+			
+  			<button type="button" class="btn btn-primary col-sm-1 col-sm-offset-8" id="btnSearch">Search</button>
+              <button type="button" class="btn btn-primary col-sm-1 col-sm-offset-5" id="btnCreate">Create</button>
+			   <table class="table table-bordered">
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Date of Joining</th>
+						<th>Department</th>
+                        <th>Action</th>
+					</tr>
+					 {{#each .}}
+						<tr EmployeeId="{{EmployeeId}}" value="{{EmployeeId}}">
+							<td info='firstName'>{{firstName}}</td>
+							<td info='lastName'>{{lastName}}</td>
+							<td info='email'>{{email}}</td>
+							<td info='DOJ'>{{DOJ}}</td>
+							<td info='Dept'>{{Dept}}</td>
+                            <td info='action'>
+                                <button action='edit'>Edit</button>
+                            </td>
+						</tr>  
+               		 {{/each}}	
+			</table>
+		</div>
+    
+
+    <div id="employeeModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="modalTitle" class="modal-title">Employee</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="txtFirstName" class="col-sm-3 control-label">First Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="txtFirstName" placeholder="First Name" value="{{FirstName}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtLastName" class="col-sm-3 control-label">Last Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="txtLastName" placeholder="Last Name" value="{{LastName}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-6">
+                                <input type="email" class="form-control" id="txtEmail" placeholder="email@abc.com" value="{{Email}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtStartDate" class="col-sm-3 control-label">Start Date</label>
+                            <div class="col-sm-6">
+                                <input type="date" class="form-control" id="txtStartDate" placeholder="DD/MM/YYYY" value="{{DateOfJoining}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEndDate" class="col-sm-3 control-label">Termination Date</label>
+                            <div class="col-sm-6">
+                                <input type="date" class="form-control" id="txtEndDate" placeholder="DD/MM/YYYY" value="{{TerminationDate}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtDepartment" class="col-sm-3 control-label">Department</label>
+                            <div class="col-sm-6">
+                                <select id = "txtDepartment" name="deptList" form="dept">
+                                    <option value="Administration">Administration</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="HR">HR</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="IT">IT</option>
+                                    <option value="Marketing">Marketing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPassword" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="txtPassword" placeholder="New Password" value="{{Password}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkIsAdmin" class="col-sm-3 control-label">Is Admin</label>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="checked" onclick="if(value==1){value=0}else{value=1}" value='0' id="checkIsAdmin">
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+
+
+
+                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="btnSave" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>

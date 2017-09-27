@@ -1,0 +1,25 @@
+{{!-- The template for showing all notices --}}
+<style>
+    #divNoticesTemplate li {
+        list-style-type: none;
+    }
+
+</style>
+
+<div id="divNoticesTemplate">
+<h1>Notices Page</h1>
+    <div id="divNotices">
+        {{#each .}}
+        <div notice-id="{{id}}" info='id' class="panel panel-default">
+            <div class="panel-heading" info='title'>{{title}}</div>
+            <span class="badge pull-right" info='endDate' value="{{endDate}}">Upto   {{endDate}}</span>
+            <span class="badge pull-right" info='startDate' value="{{startDate}}">On   {{startDate}}</span>
+            <span class="badge pull-right">Posted By    {{postedBy}}</span>
+            <div class="panel-body">
+                <p info='desc'>{{desc}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+  
+</div>

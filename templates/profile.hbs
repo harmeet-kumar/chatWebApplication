@@ -1,0 +1,58 @@
+<style>
+</style>
+
+<div id="divProfileTemplate">
+    <h1>Profile Page</h1>
+    <div id="divProfile">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="txtFirstName" class="col-sm-3 control-label">First Name*</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="txtFirstName" placeholder="First Name" value="{{FirstName}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtLastName" class="col-sm-3 control-label">Last Name*</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="txtLastName" placeholder="Last Name" value="{{LastName}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtDepartment" class="col-sm-3 control-label">Department*</label>
+                <div class="col-sm-6">
+                    <select id = "txtDepartment" name="deptList" form="dept">
+                        <option value="Administration">Administration</option>
+                        <option value="Finance">Finance</option>
+                        <option value="HR">HR</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="IT">IT</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtNewPassword" class="col-sm-3 control-label">New Password</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="txtNewPassword" placeholder="New Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtConfirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtOldPassword" class="col-sm-3 control-label">Old Password</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="txtOldPassword" placeholder="Old Password" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="btnSave" type="button" class="btn btn-primary">Save</button>
+                <button id="btnCancel"type="button" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</div>
